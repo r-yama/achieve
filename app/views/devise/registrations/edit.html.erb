@@ -6,14 +6,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス" %>
   </div>
 
-  <!-- 名前入力用のフィールドを追加 -->
   <div class="field">
     <%= f.label :名前%>
-    <%= f.text_field :name, class: "form-control"%>
+    <%= f.text_field :name, class: "form-control", placeholder: "名前"%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -22,7 +21,7 @@
 
   <div class="field">
     <%= f.label :password %> <i>(変更しない場合は空白)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> 文字以上で登録してください。</em>
@@ -31,22 +30,22 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-contorol" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "確認用パスワード" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(変更には現在のパスワードが必要です。)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: "form-contorol" %>
+    <%= f.label :current_password %><br> <i>(変更には現在のパスワードが必要)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "現在のパスワード" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", class: "btn btn-primary btn-block" %>
   </div>
   <% end %>
 
   <h3>アカウント削除</h3>
 
-  <p>現在のアカウントを削除する場合は以下のボタンを押してください。 <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除してもよろしいですか？" }, method: :delete %></p>
+  <p>現在のアカウントを削除する場合は、<br>以下のボタンを押してください。 <%= button_to "削除", registration_path(resource_name), class:"btn btn-primary btn-block", data: { confirm: "本当に削除してもよろしいですか？" }, method: :delete %></p>
 
   <%= link_to "戻る", :back %>
   </div> <!-- wrapper -->
