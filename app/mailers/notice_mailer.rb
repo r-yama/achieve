@@ -16,6 +16,6 @@ class NoticeMailer < ApplicationMailer
     @contact = contact
 
     mail to: @contact.email,
-         subject: '【Achieve】お問い合わせを承りました'
+         subject: '【Achieve】お問い合わせが投稿されました'
   end
 end
